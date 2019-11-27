@@ -1,0 +1,148 @@
+//2.1
+    class Program
+    {
+        static double zmianaFnaC(double f)
+        {
+            return ((f - 32) / 1.8);
+        }
+
+        static void Main(string[] args)
+        {
+            double c;
+            c = zmianaFnaC(215);
+            Console.WriteLine("To {0} stopni Celsjusza.", c);
+            Console.ReadKey();
+        }
+    }
+
+//2.2
+    class Program
+    {
+        static int sumaCyfr(int k)
+        {
+            int wynik = 0;
+            while (k != 0)
+            {
+                wynik += k % 10;
+                k /= 10;
+            }
+            return wynik;
+        }
+
+        static void Main(string[] args)
+        {
+            int liczba, wynik;
+            Console.Write("Podaj liczbę, której sumę cyfr program ma obliczyć: ");
+            liczba = Convert.ToInt32(Console.ReadLine());
+            wynik = sumaCyfr(liczba);
+            Console.WriteLine("Suma cyfr liczby {0} wynosi {1}.", liczba, wynik);
+            Console.ReadKey();
+        }
+    }
+
+//2.3
+    class Program
+    {
+        static bool czyZawiera(double lewa, double prawa, double sprawdzana)
+        {
+            if ((lewa < sprawdzana) && (sprawdzana < prawa))
+                return true;
+            else
+                return false;
+        }
+
+        static void Main(string[] args)
+        {
+            double a, b, x;
+            bool wynik;
+            Console.WriteLine("Program sprawdzający, czy podana liczba x należy do przedziału otwartego (a,b).");
+            Console.WriteLine("Pamiętaj więc, aby a było mniejsze od b!");
+            Console.Write("Podaj a: ");
+            a = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Podaj b: ");
+            b = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Podaj x: ");
+            x = Convert.ToDouble(Console.ReadLine());
+            wynik = czyZawiera(a, b, x);
+            if (wynik == true)
+                Console.WriteLine("Twoja liczba x = {0} należy do przedziału ({1},{2}).", x, a, b);
+            else
+            {
+                Console.WriteLine("Twoja liczba x = {0} nie należy do podanego przez Ciebie przedziału otwartego.", x);
+                Console.WriteLine("Albo nie doczytało się polecenia i podało się źle liczby do przedziału...");
+            }
+            Console.ReadKey();
+        }
+    }
+
+//2.4
+    class Program
+    {
+        static void mnozenieTablicy(int[] tab, int b)
+        {
+            for (int i = 0; i < tab.Length; i++)
+            {
+                tab[i] = (i+1) * b;
+                Console.Write(tab[i] + " ");
+            }
+        }
+
+        static void Main(string[] args)
+        {
+            int[] tablica = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 };
+            int mnoznik = 3;
+            Console.WriteLine("To wartości początkowe tablicy.");
+            for (int j = 1; j <= tablica.Length; j++)
+                Console.Write(j + " ");
+            Console.WriteLine();
+            Console.WriteLine("Mnożnik wynosi {0}.", mnoznik);
+            Console.WriteLine("Przemnożona tablica prezentuje się tak...");
+            mnozenieTablicy(tablica, mnoznik);
+            Console.ReadKey();
+        }
+    }
+
+//2.5
+    class Program
+    {
+        static int potegaFunkcja(int a)
+        {
+            int w;
+            w = a * a;
+            return w;
+        }
+
+        static void Main(string[] args)
+        {
+            int wynik, liczba;
+            Console.Write("Podaj liczbę, dla której zostanie obliczona potęga: ");
+            liczba = Convert.ToInt32(Console.ReadLine());
+            wynik = potegaFunkcja(liczba);
+            Console.WriteLine("Potęga wynosi: " + wynik);
+            Console.ReadKey();
+        }
+    }
+
+//2.6
+    class Program
+    {
+        static int silnia(int a)
+        {
+            int w = 1;
+            for (int i = 1; i <= a; i++)
+                w *= i;
+            return w;
+        }
+
+        static void Main(string[] args)
+        {
+            int wynik, liczba;
+            Console.Write("Podaj liczbę, dla której zostanie obliczona silnia: ");
+            liczba = Convert.ToInt32(Console.ReadLine());
+            wynik = silnia(liczba);
+            Console.WriteLine("Silnia wynosi: " + wynik);
+            Console.ReadKey();
+        }
+    }
+    
+//2.7 przykłady z dokumentacji    
