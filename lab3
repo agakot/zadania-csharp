@@ -1,0 +1,212 @@
+//2.0 zadanie pod 2.4
+
+//2.1
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Liczba elementów, która ma się znaleźć w tablicy: ");
+            int elementy = Convert.ToInt32(Console.ReadLine());
+            double[] tablica = new double[elementy];
+            for (int i = 0; i < tablica.Length; i++)
+            {
+                Console.WriteLine("Podaj element numer {0}: ", i+1);
+                tablica[i] = Convert.ToDouble(Console.ReadLine());
+            }
+
+            Console.WriteLine("Wartości w Twojej tablicy to: ");
+            for (int i = 0; i < tablica.Length; i++)
+                Console.Write(tablica[i] + "  ");
+
+            Console.ReadKey();
+        }
+
+//2.2
+        static void Main(string[] args)
+        {
+            int[] tab1 = new int[10] { 2, -4, 56, -89, 9, -5, -67, 12, 6, -45 };
+            int[] tab2 = new int[10];
+
+            Console.WriteLine("Kopiowanie z jednej tablicy do drugiej (tylko wartości dodatnich).");
+            Console.WriteLine("Reszta zostanie wypełniona 0.");
+            Console.WriteLine("Oto pierwsza tablica: ");
+            foreach (int n in tab1)
+                Console.Write("{0}  ", n);
+
+            for (int i = 0; i < 10; i++)
+            {
+                if (tab1[i] > 0)
+                    tab2[i] = tab1[i];
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Oto skopiowane wartości dodatnie: ");
+            foreach (int m in tab2)
+                Console.Write("{0}  ", m);
+
+            Console.ReadKey();
+        }
+
+//2.3
+        static void Main(string[] args)
+        {
+            double[,] tab2d = { { 0, 1, 2, 3, 4 }, { 1, 2, 3, 4, 5 }, { 2, 3, 4, 5, 6 }, { 3, 4, 5, 6, 7 }, { 4, 5, 6, 7, 8 } };
+            //{ { 1, -2, 3.4, -5.6, 8 }, { 2.8, 13, 42, -50, 6.7 }, { -3, 4.6, 5, -8.9, 7.99 }, { -46, 15, 16, 7, -8.19 }, { 56.19, 0, -9, 8, 17 } };
+            double suma = 0;
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+                    Console.Write("{0,4}  ", tab2d[i, j]);
+                    if (i == j)
+                        suma += tab2d[i, i];
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine("Suma wartości leżących na głównej przekątnej wynosi: " + suma);
+            
+            Console.ReadKey();
+        }
+
+//2.4
+        static void Main(string[] args)
+        {
+            int[] tab1 = new int[100];
+            int sumanieparzyste = 0;
+            int sumaparzyste = 0;
+
+            Console.WriteLine("Oto wartości w tablicy: ");
+
+            for (int i = 1; i <= 100; ++i)
+            {
+                tab1[i - 1] = i + 1;
+                Console.Write(i + " ");
+            }
+
+            Console.WriteLine();
+
+            for (int n = 1; n <=100; n += 2)
+            {
+                sumanieparzyste +=n;
+            }
+            Console.WriteLine("Suma liczb nieparzystych w tej tablicy to {0}.", sumanieparzyste);
+
+            for (int p = 2; p <= 100; p += 2)
+            {
+                sumaparzyste += p;
+            }
+            Console.WriteLine("Suma liczb parzystych w tej tablicy to {0}.", sumaparzyste);
+
+            Console.ReadKey();
+        }
+
+//2.5
+        static void Main(string[] args)
+        {
+            double bmi, waga, wzrost;
+            Console.WriteLine("KALKULATOR BMI");
+            Console.WriteLine("Podaj wagę w kg:");
+            waga = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Podaj wzrost w metrach (użyj przecinka do zapisu, czyli np. 168cm wzrostu jako 1,68): ");
+            wzrost = Convert.ToDouble(Console.ReadLine());
+            bmi = waga / (wzrost * wzrost);
+            if (bmi < 18.5)
+                Console.WriteLine("Twoje BMI wynosi {0}, co oznacza, że masz niedowagę.", bmi);
+            else if (bmi >= 25.0)
+                Console.WriteLine("Twoje BMI wynosi {0}, co oznacza, że masz nadwagę.", bmi);
+            else
+                Console.WriteLine("Twoja waga jest prawidłowa - BMI wynosi {0}.", bmi);
+            Console.ReadKey();
+        }
+
+//2.6
+        static void Main(string[] args)
+        {
+            string[][] tabelaA =
+            {
+                new string[] {"*    "},
+                new string[] {"**   "},
+                new string[] {"***  "},
+                new string[] {"**** "},
+            };
+            Console.WriteLine("WARIANT A");
+            for (int i = 0; i < tabelaA.Length; i++)
+            {
+                for (int j = 0; j < tabelaA[i].Length; j++)
+                {
+                    Console.Write("{0, -10}", tabelaA[i][j]);
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine();
+
+            string[][] tabelaB =
+            {
+                new string[] {"**** "},
+                new string[] {"***  "},
+                new string[] {"**   "},
+                new string[] {"*    "},
+            };
+            Console.WriteLine("WARIANT B");
+            for (int i = 0; i < tabelaB.Length; i++)
+            {
+                for (int j = 0; j < tabelaB[i].Length; j++)
+                {
+                    Console.Write("{0, -10}", tabelaB[i][j]);
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine();
+
+            string[][] tabelaC =
+            {
+                new string[] {"   *"},
+                new string[] {"  **"},
+                new string[] {" ***"},
+                new string[] {"****"},
+            };
+            Console.WriteLine("WARIANT C");
+            for (int i = 0; i < tabelaC.Length; i++)
+            {
+                for (int j = 0; j < tabelaC[i].Length; j++)
+                {
+                    Console.Write("{0, -10}", tabelaC[i][j]);
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine();
+
+            string[][] tabelaD =
+            {
+                new string[] {"****"},
+                new string[] {"*  *"},
+                new string[] {"*  *"},
+                new string[] {"****"},
+            };
+            Console.WriteLine("WARIANT D");
+            for (int i = 0; i < tabelaD.Length; i++)
+            {
+                for (int j = 0; j < tabelaD[i].Length; j++)
+                {
+                    Console.Write("{0, -10}", tabelaD[i][j]);
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine();
+
+            Console.ReadKey();
+        }
+
+//2.7 modyfikacja innych programów
+
+//2.8
+        static void Main(string[] args)
+        {
+            string tekst;
+            Console.WriteLine("Wprowadź jakiś tekst: ");
+            tekst = Console.ReadLine();
+
+            string[] wyrazy = tekst.Split(' ');
+            int liczba = wyrazy.Length;
+            Console.WriteLine("Liczba wyrazów w podanym przez Ciebie tekście wynosi: {0}. ", liczba);
+
+            Console.ReadKey();
+        }
