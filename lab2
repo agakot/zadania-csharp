@@ -1,0 +1,127 @@
+//2.1
+        static void Main(string[] args)
+        {
+            double a, b, c;
+            Console.WriteLine("Podaj liczbę a: ");
+            a = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Podaj liczbę b: ");
+            b = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Podaj liczbę c: ");
+            c = Convert.ToDouble(Console.ReadLine());
+            if (a * a + b * b == c * c)
+                Console.WriteLine("Liczby tworzą trójkę pitagorejską.");
+            else
+                Console.WriteLine("Liczby nie tworzą trójki pitagorejskiej.");
+            Console.ReadKey();
+        }
+
+//2.2
+        static void Main(string[] args)
+        {
+            int r, a, b, n = 10;
+            for (a = 1; a <= n; a++)
+            {
+                for (b = 1; b <= n; b++)
+                {
+                    r = a * b;
+                    Console.Write(r + " ");
+                }
+                Console.WriteLine(" ");
+            }
+            Console.ReadKey();
+        }
+
+//2.3
+        static void Main(string[] args)
+        {
+            double pi = Math.PI, a;
+            Console.WriteLine("Liczba pi: " + pi);
+            a = Math.Sqrt(pi);
+            Console.WriteLine("Pierwiastek kwadratowy z liczby pi to: " + a);
+            Console.ReadKey();
+        }
+
+//2.4
+        static void Main(string[] args)
+        {
+            double pi = Math.PI, V, r;
+            Console.WriteLine("Podaj promień kuli (r): ");
+            r = Convert.ToDouble(Console.ReadLine());
+            V = (4 * pi * (r * r * r))/3;
+            Console.WriteLine("Objętość kuli o promieniu {0} wynosi {1}.", r, V);
+            Console.ReadKey();
+        }
+
+//2.5
+        static void Main(string[] args)
+        {
+            double a, b, c, delta, x, y, z;
+            Console.WriteLine("Równanie kwadratowe ma postać ax^2+bx+c=0. Podaj a:");
+            a = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Teraz podaj b: ");
+            b = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("A teraz c: ");
+            c = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Twoje równanie ma postać {0}x^2+{1}x+{2}=0.", a, b, c);
+            delta = (b * b) - 4 * a * c;
+            Console.WriteLine("Delta dla niego wynosi: {0}.", delta);
+            if (delta == 0)
+            {
+                Console.WriteLine("Twoja delta jest równa 0. Istnieje więc jeden pierwiastek.");
+                z = -b / (2 * a);
+                Console.WriteLine("Wynosi on: {0}.", z);
+            }
+            else if (delta > 0)
+            {
+                Console.WriteLine("Twoja delta jest większa od 0. Są więc dwa pierwiastki.");
+                x = (-b - Math.Sqrt(delta)) / 2 * a;
+                y = (-b + Math.Sqrt(delta)) / 2 * a;
+                Console.WriteLine("Pierwiastki te wynoszą {0} oraz {1}.", x, y);
+            }
+            else
+                Console.WriteLine("Twoja delta jest mniejsza niż 0. Nie ma więc żadnego pierwiastka.");
+
+            Console.ReadKey();
+        }
+
+//2.6
+//if-else
+        static void Main(string[] args)
+        {
+            double A, x, B;
+            Console.WriteLine("Twoje równanie ma postać Ax=B. Podaj A:");
+            A = Convert.ToDouble(Console.ReadLine());
+            if (A == 0)
+                Console.WriteLine("Współczynnik kierunkowy nie może być równy 0. Nie można obliczyć x.");
+            else
+            {
+                Console.WriteLine("Teraz podaj B: ");
+                B = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("Twoje równanie ma postać {0}x={1}", A, B);
+                x = B / A;
+                Console.WriteLine("Twoje x wynosi: " + x);
+            }
+            Console.ReadKey();
+        }
+
+//switch-case
+        static void Main(string[] args)
+        {
+            double A, x, B;
+            Console.WriteLine("Twoje równanie ma postać Ax=B. Podaj A:");
+            A = Convert.ToDouble(Console.ReadLine());
+            switch (A)
+            {
+                case 0:
+                    Console.WriteLine("Współczynnik kierunkowy nie może być równy 0. Nie można obliczyć x.");
+                    break;
+                default:
+                    Console.WriteLine("Teraz podaj B: ");
+                    B = Convert.ToDouble(Console.ReadLine());
+                    Console.WriteLine("Twoje równanie ma postać {0}x={1}", A, B);
+                    x = B / A;
+                    Console.WriteLine("Twoje x wynosi: " + x);
+                    break;
+            }
+            Console.ReadKey();
+        }
