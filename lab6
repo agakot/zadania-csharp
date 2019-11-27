@@ -1,0 +1,221 @@
+//2.1
+        static void Main(string[] args)
+        {
+            int poczatek, koniec, parzystypoczatek, parzystykoniec;
+            Console.Write("Podaj pierwszą liczbę całkowitą: ");
+            poczatek = Int32.Parse(Console.ReadLine());
+            Console.Write("Podaj drugą liczbę całkowitą: ");
+            koniec = Int32.Parse(Console.ReadLine());
+
+            parzystypoczatek = (poczatek % 2 == 0) ? parzystypoczatek = poczatek : parzystypoczatek = poczatek + 1;
+            parzystykoniec = (koniec % 2 == 0) ? parzystykoniec = koniec : parzystykoniec = koniec - 1;
+
+            Console.Write("Parzyste liczby między podanymi wartościami to: ");
+            for (int i = parzystypoczatek; i <= parzystykoniec; i += 2)
+                Console.Write(i + " ");
+
+            Console.WriteLine();
+            Console.ReadKey();
+        }
+
+//2.2a
+        static void Main(string[] args)
+        {
+            Random rnd = new Random();
+            int szczesliwy = rnd.Next(0, 10);
+            int podanaliczba;
+
+            do
+            {
+                Console.Write("Podaj liczbę w przedziale 0-10: ");
+                podanaliczba = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Została podana liczba {0}.", podanaliczba);
+                if (podanaliczba == szczesliwy)
+                    break;
+                else
+                    Console.WriteLine("Spróbuj jeszcze raz!");
+            }
+            while (podanaliczba != szczesliwy);
+
+            Console.WriteLine("Brawo!");
+
+            Console.ReadKey();
+        }
+
+//2.2b
+        static void Main(string[] args)
+        {
+            Random rnd = new Random();
+            int szczesliwy = rnd.Next(0, 10);
+            int podanaliczba, licznik = 1;
+
+            do
+            {
+                Console.Write("Podaj liczbę w przedziale 0-10: ");
+                podanaliczba = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Została podana liczba {0}.", podanaliczba);
+                if (podanaliczba == szczesliwy)
+                    break;
+                else
+                    Console.WriteLine("Spróbuj jeszcze raz!");
+                licznik++;
+            }
+            while (podanaliczba != szczesliwy);
+
+            Console.WriteLine("Brawo!");
+            Console.WriteLine("Udało się zgadnąć za {0} razem.", licznik);
+
+            Console.ReadKey();
+        }
+
+//2.2c
+        static void Main(string[] args)
+        {
+            Random rnd = new Random();
+            int szczesliwy = rnd.Next(1, 9);
+            int podanaliczba, licznik = 0;
+
+            do
+            {
+                Console.Write("Podaj liczbę w przedziale 1-9: ");
+                podanaliczba = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Została podana liczba {0}.", podanaliczba);
+
+                licznik++;
+                if (licznik <= 3)
+                {
+                    if (podanaliczba == szczesliwy)
+                        break;
+                    else
+                        Console.WriteLine("Spróbuj jeszcze raz!");
+                    continue;
+                }
+                else
+                    break;
+
+            }
+            while (podanaliczba != szczesliwy);
+
+            if (podanaliczba == szczesliwy)
+            {
+                Console.WriteLine("Brawo!");
+                Console.WriteLine("Udało się zgadnąć za {0} razem.", licznik);
+            }
+            else
+                Console.WriteLine("Niestety, do czterech razy sztuka. Szczęśliwy numerek wynosił {0}.", szczesliwy);
+
+            Console.ReadKey();
+        }
+
+//2.2d
+        static void Main(string[] args)
+        {
+            Random rnd = new Random();
+            int szczesliwy = rnd.Next(1, 9);
+            int podanaliczba, licznik = 0;
+            string kontynuacja;
+
+            while (true)
+            {
+                do
+                {
+                    Console.Write("Podaj liczbę w przedziale 1-9: ");
+                    podanaliczba = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Została podana liczba {0}.", podanaliczba);
+
+                    licznik++;
+                    if (licznik <= 3)
+                    {
+                        if (podanaliczba == szczesliwy)
+                            break;
+                        else
+                            Console.WriteLine("Spróbuj jeszcze raz!");
+                        continue;
+                    }
+                    else
+                        break;
+
+                }
+                while (podanaliczba != szczesliwy);
+
+                if (podanaliczba == szczesliwy)
+                {
+                    Console.WriteLine("Brawo!");
+                    Console.WriteLine("Udało się zgadnąć za {0} razem.", licznik);
+                }
+                else
+                    Console.WriteLine("Niestety, do czterech razy sztuka. Szczęśliwy numerek wynosił {0}.", szczesliwy);
+
+                Console.Write("Gramy dalej? Wpisz tak lub nie: ");
+                kontynuacja = Console.ReadLine();
+                if (kontynuacja == "tak")
+                {
+                    szczesliwy = rnd.Next(1, 9);
+                    licznik = 0;
+                    continue;
+                }
+                else
+                    break;
+            }
+            Console.ReadKey();
+        }
+
+//2.3
+        static void Main(string[] args)
+        {
+            int max = 0, min = 20, podana, licznikMax = 1, licznikMin = 1;
+
+            while(true)
+            {
+                Console.Write("Podaj liczbę (-1 kończy program): ");
+                podana = Convert.ToInt32(Console.ReadLine());
+
+                if (podana >= 0 && podana <= 20)
+                {
+                    if (podana == max)
+                    {
+                        licznikMax++;
+                    }
+
+                    else if (podana > max)
+                    {
+                        max = podana;
+                        if (podana < min)
+                        {
+                            min = podana;
+                        }
+                        else
+                            continue;
+                    }
+
+                    else if (podana < max)
+                    {
+                        if (podana < min)
+                        {
+                            min = podana;
+                        }
+                        else if (podana == min)
+                        {
+                            licznikMin++;
+                        }
+                        else
+                            continue;
+                    }
+                    else
+                        continue;
+                }
+                else if (podana == -1)
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Liczba miała być w przedziale <0,20>.");
+                    continue;
+                }
+            }
+
+            Console.WriteLine("Maksimum równe {0}. Wystąpiło {1} razy.", max, licznikMax);
+            Console.WriteLine("Minimum równe {0}. Wystąpiło {1} razy.", min, licznikMin);
+            Console.ReadKey();
+        }
