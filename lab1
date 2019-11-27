@@ -1,0 +1,73 @@
+3.1
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello world!");
+            Console.ReadKey();
+        }
+
+3.2
+        static void Main(string[] args)
+        {
+            double a, b, pole;
+            Console.WriteLine("Podaj a (większe od 0): ");
+            a = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Podaj b (większe od 0): ");
+            b = Convert.ToDouble(Console.ReadLine());
+            pole = a * b;
+            Console.WriteLine("Pole wynosi: " + pole);
+            Console.ReadKey();
+        }
+
+3.3
+	static void Main(string[] args)
+        {
+            double a, b, dodawanie, odejmowanie, mnozenie, dzielenie;
+            Console.WriteLine("Podaj a: ");
+            a = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Podaj b: ");
+            b = Convert.ToDouble(Console.ReadLine());
+            dodawanie = a + b;
+            odejmowanie = a - b;
+            mnozenie = a * b;
+            dzielenie = a / b;
+            Console.WriteLine("Wynik dodawania: " + dodawanie);
+            Console.WriteLine("Wynik odejmowania: " + odejmowanie);
+            Console.WriteLine("Wynik mnożenia: " + mnozenie);
+            Console.WriteLine("Wynik dzielenia: " + dzielenie);
+            Console.ReadKey();
+        }
+
+3.4
+        static void Main(string[] args)
+        {
+            int e1 = 0, e2 = 1, e3, i, n;
+            Console.WriteLine("Podaj, ile wyrazów ciągu obliczyć:");
+            n = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Wynik: ");
+            Console.Write(e1 + " " + e2 + " ");
+
+            for (i = 2; i < n; ++i)
+            {
+                e3 = e1 + e2;
+                Console.Write(e3 + " ");
+                e1 = e2;
+                e2 = e3;
+            }
+            Console.ReadKey();
+        }
+
+3.5
+        static void Main(string[] args)
+        {
+            int n, wynik = 1, i;
+            Console.WriteLine("Podaj n, dla którego program ma obliczyć silnię n!: ");
+            n = Convert.ToInt32(Console.ReadLine());
+
+            for (i = 1; i <= n; i++)
+                wynik *= i;            
+
+            Console.WriteLine("Wynik to: " + wynik);
+            Console.ReadKey();
+
+        }
