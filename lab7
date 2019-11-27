@@ -1,0 +1,78 @@
+//2.1
+        public class Klasa1
+        {
+            public int liczba;
+
+            public Klasa1(int liczba)
+            {
+                this.liczba = liczba;
+            }
+
+            public Klasa1()
+            {
+                this.liczba = -1;
+            }
+        }
+
+        static void Main(string[] args)
+        {
+            Klasa1 ttt = new Klasa1(23);
+            Console.WriteLine(ttt.liczba);
+
+            Klasa1 rrr = new Klasa1();
+            Console.WriteLine(rrr.liczba);
+
+            Console.ReadKey();
+        }
+
+//2.2
+        public class Klasa2
+        {
+            public double x;
+            public char y;
+
+            public Klasa2(double xx)
+            {
+                this.x = xx;
+                Console.WriteLine("Tylko typ double.");
+            }
+
+            public Klasa2(char yy)
+            {
+                this.y = yy;
+                Console.WriteLine("Tylko typ char.");
+            }
+
+            public Klasa2(double xx, char yy)
+            {
+                this.x = xx;
+                this.y = yy;
+                Console.WriteLine("Oba typy w dobrej kolejności.");
+            }
+
+            public Klasa2(char yy, double xx)
+            {
+                this.x = xx;
+                this.y = yy;
+                Console.WriteLine("Oba typy na odwrót.");
+            }
+        }
+
+        static void Main(string[] args)
+        {
+            Klasa2 ttt = new Klasa2(45.67);
+            Console.WriteLine(ttt.x);
+
+            Klasa2 uuu = new Klasa2('z');
+            Console.WriteLine(uuu.y);
+
+            Klasa2 www = new Klasa2(12.56, 'x');
+            Console.WriteLine(www.x);
+
+            Klasa2 xxx = new Klasa2('c', 1.2);
+            Console.WriteLine(xxx.y);
+
+            Console.ReadKey();
+        }
+
+//2.3 modyfikacja programów
