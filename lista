@@ -1,0 +1,37 @@
+public class Osoba
+        {
+            public int IDOsoby;
+            public string ImieOsoby;
+            public string NazwiskoOsoby;
+            public int Wiek;
+            public string Obecnosc;
+
+            public Osoba(int xIDOsoby, string xImieOsoby, string xNazwiskoOsoby, int xWiek, string xObecnosc)
+            {
+                IDOsoby = xIDOsoby;
+                ImieOsoby = xImieOsoby;
+                NazwiskoOsoby = xNazwiskoOsoby;
+                Wiek = xWiek;
+                Obecnosc = xObecnosc;
+            }
+        }
+
+        static void Main(string[] args)
+        {
+            List<Osoba> listaOsob = new List<Osoba>();
+            listaOsob.Add(new Osoba(1, "Ewa", "Ściślicka", 22, "JEST"));
+            listaOsob.Add(new Osoba(2, "Agnieszka", "Kot", 23, "JEST"));
+            listaOsob.Add(new Osoba(3, "Anna", "Bogacz", 22, "NIE MA"));
+            listaOsob.Add(new Osoba(4, "Natalia", "Ślusarczyk", 23, "NIE MA"));
+
+            foreach (Osoba x in listaOsob)
+            {
+                Console.WriteLine("ID: " + x.IDOsoby +
+                    "\nImię: " + x.ImieOsoby +
+                    "\nNazwisko: " + x.NazwiskoOsoby +
+                    "\nWiek: " + x.Wiek +
+                    "\nObecność: " + x.Obecnosc + "\n");
+            }
+
+            Console.ReadKey();
+        }
