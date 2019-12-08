@@ -1,1 +1,38 @@
+//2.1
+    class Program
+    {
+        public class Prostokat
+        {
+            private double dlugosc;
+            private double szerokosc;
 
+            private double powierzchnia(double dl, double szer)
+            {
+                return dl * szer;
+            }
+
+            private double obwod(double dl1, double szer1)
+            {
+                return (2 * dl1) + (2 * szer1);
+            }
+
+            public Prostokat(double d, double s)
+            {
+                dlugosc = d;
+                szerokosc = s;
+            }
+
+            public void Prezentuj()
+            {
+                Console.WriteLine("Powierzchnia wynosi: " + powierzchnia(dlugosc, szerokosc));
+                Console.WriteLine("Obwód wynosi: " + obwod(dlugosc, szerokosc));
+            }
+        }
+
+        static void Main(string[] args)
+        {
+            Prostokat p1 = new Prostokat(12, 15);
+            p1.Prezentuj();
+            Console.ReadKey();
+        }
+    }
